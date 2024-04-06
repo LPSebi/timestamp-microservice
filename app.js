@@ -5,6 +5,10 @@ const app = express()
 
 // create the date route
 app.get('/api/:date?', (req, res) => {
+    // allow all origins
+    res.header('Access-Control-Allow-Origin', '*')
+    res.header('Access-Control-Allow-Headers', 'X-Requested-With')
+
     const date = req.params.date
     console.log(typeof date)
     if (!date) {
